@@ -1,0 +1,481 @@
+{
+  "task": "Parkinson's cohort vs control from foot ground reaction force features",
+  "dataset": {
+    "name": "PhysioNet Gait in Parkinson's Disease (gaitpdb)",
+    "doi": "10.13026/C24H3N",
+    "license": "ODC-By 1.0",
+    "participants": 165,
+    "recordings": 306,
+    "features": 182,
+    "class_distribution_participants": {
+      "control": 72,
+      "parkinsons": 93
+    }
+  },
+  "leakage_safeguard_and_study_audit": {
+    "crosstab_recordings": {
+      "0": {
+        "Ga": 38,
+        "Ju": 25,
+        "Si": 29
+      },
+      "1": {
+        "Ga": 75,
+        "Ju": 104,
+        "Si": 35
+      }
+    },
+    "participants_per_study": {
+      "Ga": 47,
+      "Ju": 54,
+      "Si": 64
+    },
+    "study_prevalence": {
+      "Ga": {
+        "total_participants": 47,
+        "parkinsons_participants": 29,
+        "prevalence": 0.617
+      },
+      "Ju": {
+        "total_participants": 54,
+        "parkinsons_participants": 29,
+        "prevalence": 0.537
+      },
+      "Si": {
+        "total_participants": 64,
+        "parkinsons_participants": 35,
+        "prevalence": 0.5469
+      }
+    },
+    "leakage_safeguard": "Metadata fields ('study', 'walk_condition', 'recording_id', 'sampling_hz') are strictly excluded from feature inputs. Features consist exclusively of ground reaction force summary statistics."
+  },
+  "evaluation_protocol": "StratifiedGroupKFold on participant_id (5 outer folds, 3 inner folds). Participant walks are strictly kept together; out-of-fold walk probabilities are aggregated to participant level.",
+  "models_evaluated": {
+    "Dummy": {
+      "accuracy": {
+        "mean": 0.5635026737967915,
+        "std": 0.013866092068461518
+      },
+      "balanced_accuracy": {
+        "mean": 0.5,
+        "std": 0.0
+      },
+      "sensitivity": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "specificity": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "f1": {
+        "mean": 0.7207208451514777,
+        "std": 0.011278313347622769
+      },
+      "roc_auc": {
+        "mean": 0.5,
+        "std": 0.0
+      },
+      "brier_score": {
+        "mean": 0.4364973262032086,
+        "std": 0.013866092068461502
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.5636363636363636
+        ],
+        "prob_pred": [
+          1.0
+        ]
+      },
+      "oof_brier_score": 0.43636363636363634
+    },
+    "LogisticRegression": {
+      "accuracy": {
+        "mean": 0.7590574866310161,
+        "std": 0.060703358186358795
+      },
+      "balanced_accuracy": {
+        "mean": 0.7622013366750208,
+        "std": 0.06548653436725813
+      },
+      "sensitivity": {
+        "mean": 0.7434502923976608,
+        "std": 0.052265654519170555
+      },
+      "specificity": {
+        "mean": 0.780952380952381,
+        "std": 0.12177820811947071
+      },
+      "f1": {
+        "mean": 0.7779350154350155,
+        "std": 0.049711569122321636
+      },
+      "roc_auc": {
+        "mean": 0.8603870788081315,
+        "std": 0.03030190595967394
+      },
+      "brier_score": {
+        "mean": 0.15121618169054868,
+        "std": 0.01528960136331021
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.058823529411764705,
+          0.37037037037037035,
+          0.65625,
+          0.6666666666666666,
+          0.9166666666666666
+        ],
+        "prob_pred": [
+          0.09031576966838697,
+          0.29428556942465006,
+          0.48992494669465725,
+          0.7025130949733146,
+          0.9162511962148457
+        ]
+      },
+      "oof_brier_score": 0.1516221842799678
+    },
+    "SVM": {
+      "accuracy": {
+        "mean": 0.776147504456328,
+        "std": 0.03423600621548981
+      },
+      "balanced_accuracy": {
+        "mean": 0.7616165413533834,
+        "std": 0.04226674273785656
+      },
+      "sensitivity": {
+        "mean": 0.8822807017543861,
+        "std": 0.03873252652741112
+      },
+      "specificity": {
+        "mean": 0.6409523809523809,
+        "std": 0.11387226802007713
+      },
+      "f1": {
+        "mean": 0.8171428571428571,
+        "std": 0.020337291908631042
+      },
+      "roc_auc": {
+        "mean": 0.8599094959621276,
+        "std": 0.03583158510520583
+      },
+      "brier_score": {
+        "mean": 0.15412493826238488,
+        "std": 0.02370255841185035
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.11538461538461539,
+          0.13043478260869565,
+          0.5714285714285714,
+          0.6129032258064516,
+          0.875
+        ],
+        "prob_pred": [
+          0.08942912427298372,
+          0.30805353438532146,
+          0.5104672336298949,
+          0.7109836721180065,
+          0.9316127548890523
+        ]
+      },
+      "oof_brier_score": 0.15444105459840443
+    },
+    "RandomForest": {
+      "accuracy": {
+        "mean": 0.7462009803921569,
+        "std": 0.05673424035994076
+      },
+      "balanced_accuracy": {
+        "mean": 0.7428070175438597,
+        "std": 0.0637147054941631
+      },
+      "sensitivity": {
+        "mean": 0.7856140350877194,
+        "std": 0.08710945909577297
+      },
+      "specificity": {
+        "mean": 0.7,
+        "std": 0.16670747799650332
+      },
+      "f1": {
+        "mean": 0.7772609210782779,
+        "std": 0.044272744347213115
+      },
+      "roc_auc": {
+        "mean": 0.8511723753829017,
+        "std": 0.04803649736185895
+      },
+      "brier_score": {
+        "mean": 0.16143583492801095,
+        "std": 0.01794128583362103
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.09090909090909091,
+          0.21428571428571427,
+          0.6046511627906976,
+          0.7,
+          0.96875
+        ],
+        "prob_pred": [
+          0.1393210608661045,
+          0.29990515334660806,
+          0.4987099875077943,
+          0.7158299986815343,
+          0.8731762427274105
+        ]
+      },
+      "oof_brier_score": 0.16177733807979752
+    },
+    "GradientBoosting": {
+      "accuracy": {
+        "mean": 0.7645944741532977,
+        "std": 0.09647564140761568
+      },
+      "balanced_accuracy": {
+        "mean": 0.7542606516290726,
+        "std": 0.10382532341614865
+      },
+      "sensitivity": {
+        "mean": 0.8494736842105264,
+        "std": 0.07915942929125137
+      },
+      "specificity": {
+        "mean": 0.659047619047619,
+        "std": 0.19269187510156913
+      },
+      "f1": {
+        "mean": 0.8044749555047037,
+        "std": 0.0767164259463949
+      },
+      "roc_auc": {
+        "mean": 0.8317683096630464,
+        "std": 0.05873179376812928
+      },
+      "brier_score": {
+        "mean": 0.1927714381935634,
+        "std": 0.0701529748614504
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.15217391304347827,
+          0.4166666666666667,
+          0.6,
+          0.625,
+          0.7906976744186046
+        ],
+        "prob_pred": [
+          0.04267549021273072,
+          0.31790181391476857,
+          0.48298379167555794,
+          0.7118006095065567,
+          0.967223338863149
+        ]
+      },
+      "oof_brier_score": 0.19377901871774275
+    }
+  },
+  "selected_best_model": "LogisticRegression",
+  "best_model_metrics": {
+    "accuracy": {
+      "mean": 0.7590574866310161,
+      "std": 0.060703358186358795
+    },
+    "balanced_accuracy": {
+      "mean": 0.7622013366750208,
+      "std": 0.06548653436725813
+    },
+    "sensitivity": {
+      "mean": 0.7434502923976608,
+      "std": 0.052265654519170555
+    },
+    "specificity": {
+      "mean": 0.780952380952381,
+      "std": 0.12177820811947071
+    },
+    "f1": {
+      "mean": 0.7779350154350155,
+      "std": 0.049711569122321636
+    },
+    "roc_auc": {
+      "mean": 0.8603870788081315,
+      "std": 0.03030190595967394
+    },
+    "brier_score": {
+      "mean": 0.15121618169054868,
+      "std": 0.01528960136331021
+    },
+    "calibration_curve": {
+      "prob_true": [
+        0.058823529411764705,
+        0.37037037037037035,
+        0.65625,
+        0.6666666666666666,
+        0.9166666666666666
+      ],
+      "prob_pred": [
+        0.09031576966838697,
+        0.29428556942465006,
+        0.48992494669465725,
+        0.7025130949733146,
+        0.9162511962148457
+      ]
+    },
+    "oof_brier_score": 0.1516221842799678
+  },
+  "subgroup_sensitivity_analysis": {
+    "by_study": {
+      "Ga": {
+        "participants": 47,
+        "parkinsons_count": 29,
+        "control_count": 18,
+        "balanced_accuracy": 0.7576628352490422,
+        "sensitivity": 0.7931034482758621,
+        "specificity": 0.7222222222222222,
+        "f1": 0.8070175438596491,
+        "roc_auc": 0.8908045977011495
+      },
+      "Ju": {
+        "participants": 54,
+        "parkinsons_count": 29,
+        "control_count": 25,
+        "balanced_accuracy": 0.8110344827586207,
+        "sensitivity": 0.8620689655172413,
+        "specificity": 0.76,
+        "f1": 0.8333333333333334,
+        "roc_auc": 0.8620689655172414
+      },
+      "Si": {
+        "participants": 64,
+        "parkinsons_count": 35,
+        "control_count": 29,
+        "balanced_accuracy": 0.7137931034482758,
+        "sensitivity": 0.6,
+        "specificity": 0.8275862068965517,
+        "f1": 0.6885245901639344,
+        "roc_auc": 0.8463054187192118
+      }
+    },
+    "by_walk_condition": {
+      "dual_task": {
+        "recordings": 27,
+        "parkinsons_count": 21,
+        "control_count": 6,
+        "balanced_accuracy": 0.7857142857142857,
+        "sensitivity": 0.9047619047619048,
+        "specificity": 0.6666666666666666,
+        "f1": 0.9047619047619048,
+        "roc_auc": 0.8492063492063492
+      },
+      "other": {
+        "recordings": 114,
+        "parkinsons_count": 100,
+        "control_count": 14,
+        "balanced_accuracy": 0.7371428571428571,
+        "sensitivity": 0.76,
+        "specificity": 0.7142857142857143,
+        "f1": 0.8444444444444444,
+        "roc_auc": 0.8264285714285715
+      },
+      "usual": {
+        "recordings": 165,
+        "parkinsons_count": 93,
+        "control_count": 72,
+        "balanced_accuracy": 0.7629928315412187,
+        "sensitivity": 0.7204301075268817,
+        "specificity": 0.8055555555555556,
+        "f1": 0.7701149425287356,
+        "roc_auc": 0.8572281959378732
+      }
+    }
+  },
+  "shap_explanations": {
+    "top_features": [
+      {
+        "feature": "gait__L6__median",
+        "importance": 0.13926
+      },
+      {
+        "feature": "gait__L7__median",
+        "importance": 0.12032
+      },
+      {
+        "feature": "gait__R8__median",
+        "importance": 0.10998
+      },
+      {
+        "feature": "gait__R4__median",
+        "importance": 0.10822
+      },
+      {
+        "feature": "gait__L8__zero_fraction",
+        "importance": 0.09618
+      },
+      {
+        "feature": "gait__R7__median",
+        "importance": 0.08503
+      },
+      {
+        "feature": "gait__L5__median",
+        "importance": 0.08388
+      },
+      {
+        "feature": "gait__R6__max",
+        "importance": 0.08322
+      },
+      {
+        "feature": "gait__R6__range",
+        "importance": 0.08322
+      },
+      {
+        "feature": "gait__R5__median",
+        "importance": 0.07644
+      },
+      {
+        "feature": "gait__L6__zero_fraction",
+        "importance": 0.07171
+      },
+      {
+        "feature": "gait__L5__zero_fraction",
+        "importance": 0.07011
+      },
+      {
+        "feature": "gait__R6__median",
+        "importance": 0.06838
+      },
+      {
+        "feature": "gait__L4__median",
+        "importance": 0.06332
+      },
+      {
+        "feature": "gait__R1__p95",
+        "importance": 0.06259
+      },
+      {
+        "feature": "gait__R8__zero_fraction",
+        "importance": 0.06245
+      },
+      {
+        "feature": "gait__R6__zero_fraction",
+        "importance": 0.06131
+      },
+      {
+        "feature": "gait__L1__std",
+        "importance": 0.06042
+      },
+      {
+        "feature": "gait__L7__mean",
+        "importance": 0.05932
+      },
+      {
+        "feature": "gait__L8__median",
+        "importance": 0.05793
+      }
+    ]
+  },
+  "disclaimer": "Research and educational prototype only. Not a medical device. Not clinically validated for diagnostic, prognostic, or screening purposes."
+}

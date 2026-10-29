@@ -1,0 +1,106 @@
+{
+  "task": "Parkinson's cohort vs control from foot-pressure gait-force signal summary features",
+  "source": "PhysioNet Gait in Parkinson's Disease v1.0.0, DOI 10.13026/C24H3N, ODC-By 1.0; attribution in data/external/README.md",
+  "recordings": 306,
+  "participants": 165,
+  "class_counts_participants": {
+    "control": 72,
+    "parkinsons": 93
+  },
+  "features": 180,
+  "evaluation": "5-fold StratifiedGroupKFold; participant IDs are held out by fold; walk probabilities are averaged per participant before metrics",
+  "threshold": 0.5,
+  "cross_validation": {
+    "accuracy": 0.7878787878787878,
+    "balanced_accuracy": 0.7883064516129032,
+    "macro_f1": 0.7858652526975416,
+    "sensitivity": 0.7849462365591398,
+    "specificity": 0.7916666666666666,
+    "precision": 0.8295454545454546,
+    "roc_auc": 0.853494623655914,
+    "confusion_matrix_labels_0_1": [
+      [
+        57,
+        15
+      ],
+      [
+        20,
+        73
+      ]
+    ],
+    "classification_report": {
+      "control": {
+        "precision": 0.7402597402597403,
+        "recall": 0.7916666666666666,
+        "f1-score": 0.7651006711409396,
+        "support": 72.0
+      },
+      "Parkinson's cohort": {
+        "precision": 0.8295454545454546,
+        "recall": 0.7849462365591398,
+        "f1-score": 0.8066298342541437,
+        "support": 93.0
+      },
+      "accuracy": 0.7878787878787878,
+      "macro avg": {
+        "precision": 0.7849025974025974,
+        "recall": 0.7883064516129032,
+        "f1-score": 0.7858652526975416,
+        "support": 165.0
+      },
+      "weighted avg": {
+        "precision": 0.7905844155844156,
+        "recall": 0.7878787878787878,
+        "f1-score": 0.7885080176229273,
+        "support": 165.0
+      }
+    }
+  },
+  "majority_class_baseline": {
+    "accuracy": 0.5636363636363636,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.36046511627906974,
+    "sensitivity": 1.0,
+    "specificity": 0.0,
+    "precision": 0.5636363636363636,
+    "roc_auc": 0.5,
+    "confusion_matrix_labels_0_1": [
+      [
+        0,
+        72
+      ],
+      [
+        0,
+        93
+      ]
+    ],
+    "classification_report": {
+      "control": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 72.0
+      },
+      "Parkinson's cohort": {
+        "precision": 0.5636363636363636,
+        "recall": 1.0,
+        "f1-score": 0.7209302325581395,
+        "support": 93.0
+      },
+      "accuracy": 0.5636363636363636,
+      "macro avg": {
+        "precision": 0.2818181818181818,
+        "recall": 0.5,
+        "f1-score": 0.36046511627906974,
+        "support": 165.0
+      },
+      "weighted avg": {
+        "precision": 0.3176859504132231,
+        "recall": 0.5636363636363636,
+        "f1-score": 0.40634249471458767,
+        "support": 165.0
+      }
+    }
+  },
+  "warning": "Small retrospective benchmark cohort; internal grouped CV is not external clinical validation. Research/education only, not for diagnosis, screening, or treatment decisions."
+}

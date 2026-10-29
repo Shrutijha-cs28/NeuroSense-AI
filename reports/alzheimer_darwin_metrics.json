@@ -1,0 +1,509 @@
+{
+  "task": "Alzheimer cohort vs healthy cohort from online handwriting features; strictly NOT MRI or EEG",
+  "dataset": {
+    "name": "UCI DARWIN",
+    "doi": "10.24432/C55D0K",
+    "license": "CC BY 4.0",
+    "participants": 174,
+    "features": 450,
+    "tasks": 25,
+    "class_distribution": {
+      "healthy": 85,
+      "Alzheimer_cohort": 89
+    },
+    "missing_values": 0,
+    "duplicate_participant_ids": 0
+  },
+  "evaluation_protocol": "Nested 5-fold Stratified CV with inner 3-fold CV for hyperparameter tuning. Imputation, scaling, and feature selection performed inside each training fold to eliminate leakage. Reported metrics are mean \u00b1 std across outer folds.",
+  "models_evaluated": {
+    "Dummy": {
+      "accuracy": {
+        "mean": 0.5114285714285713,
+        "std": 0.005714285714285694
+      },
+      "balanced_accuracy": {
+        "mean": 0.5,
+        "std": 0.0
+      },
+      "sensitivity": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "specificity": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "f1": {
+        "mean": 0.6767295597484276,
+        "std": 0.005031446540880502
+      },
+      "roc_auc": {
+        "mean": 0.5,
+        "std": 0.0
+      },
+      "brier_score": {
+        "mean": 0.4885714285714286,
+        "std": 0.005714285714285716
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.5114942528735632
+        ],
+        "prob_pred": [
+          1.0
+        ]
+      },
+      "oof_brier_score": 0.4885057471264368
+    },
+    "LogisticRegression": {
+      "accuracy": {
+        "mean": 0.8216806722689075,
+        "std": 0.06659450464465219
+      },
+      "balanced_accuracy": {
+        "mean": 0.8225490196078431,
+        "std": 0.06590134854278941
+      },
+      "sensitivity": {
+        "mean": 0.7980392156862746,
+        "std": 0.09626721038668441
+      },
+      "specificity": {
+        "mean": 0.8470588235294116,
+        "std": 0.059988464865797474
+      },
+      "f1": {
+        "mean": 0.8186500939442116,
+        "std": 0.0717210110294767
+      },
+      "roc_auc": {
+        "mean": 0.8941176470588236,
+        "std": 0.051819802988012524
+      },
+      "brier_score": {
+        "mean": 0.133904552209874,
+        "std": 0.04525323021774806
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.08196721311475409,
+          0.42857142857142855,
+          0.36363636363636365,
+          0.8695652173913043,
+          0.8793103448275862
+        ],
+        "prob_pred": [
+          0.06561620570263986,
+          0.2887882369539348,
+          0.4788980392166753,
+          0.7064403013512097,
+          0.9586376924018642
+        ]
+      },
+      "oof_brier_score": 0.13388690415367635
+    },
+    "SVM": {
+      "accuracy": {
+        "mean": 0.8504201680672269,
+        "std": 0.05585296504067149
+      },
+      "balanced_accuracy": {
+        "mean": 0.8509803921568627,
+        "std": 0.055799158345118276
+      },
+      "sensitivity": {
+        "mean": 0.8431372549019608,
+        "std": 0.06393880837331031
+      },
+      "specificity": {
+        "mean": 0.8588235294117647,
+        "std": 0.07058823529411766
+      },
+      "f1": {
+        "mean": 0.8519887955182073,
+        "std": 0.056703036329862684
+      },
+      "roc_auc": {
+        "mean": 0.9038062283737023,
+        "std": 0.04961755458751646
+      },
+      "brier_score": {
+        "mean": 0.1310799582135132,
+        "std": 0.041908382011041634
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.11290322580645161,
+          0.2857142857142857,
+          0.3333333333333333,
+          0.8888888888888888,
+          0.8571428571428571
+        ],
+        "prob_pred": [
+          0.05620772013786163,
+          0.3223348855186488,
+          0.4879301893023739,
+          0.7561926025736971,
+          0.942398090805801
+        ]
+      },
+      "oof_brier_score": 0.13091690155394603
+    },
+    "RandomForest": {
+      "accuracy": {
+        "mean": 0.8505882352941176,
+        "std": 0.06095629415680299
+      },
+      "balanced_accuracy": {
+        "mean": 0.8503267973856209,
+        "std": 0.0622255175707812
+      },
+      "sensitivity": {
+        "mean": 0.8653594771241829,
+        "std": 0.04386395224983662
+      },
+      "specificity": {
+        "mean": 0.8352941176470589,
+        "std": 0.11406305546861949
+      },
+      "f1": {
+        "mean": 0.8574416433239962,
+        "std": 0.05403632962978711
+      },
+      "roc_auc": {
+        "mean": 0.948558246828143,
+        "std": 0.0355148105814286
+      },
+      "brier_score": {
+        "mean": 0.10838338347940302,
+        "std": 0.02070206478324887
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.0,
+          0.28,
+          0.48484848484848486,
+          0.8571428571428571,
+          1.0
+        ],
+        "prob_pred": [
+          0.09597327077156703,
+          0.2985661440297702,
+          0.5165725788174654,
+          0.7126941717508619,
+          0.9133606412167169
+        ]
+      },
+      "oof_brier_score": 0.10843259072049492
+    },
+    "GradientBoosting": {
+      "accuracy": {
+        "mean": 0.8278991596638654,
+        "std": 0.08235362716229469
+      },
+      "balanced_accuracy": {
+        "mean": 0.8281045751633986,
+        "std": 0.08256017084778103
+      },
+      "sensitivity": {
+        "mean": 0.8209150326797385,
+        "std": 0.08794189904080607
+      },
+      "specificity": {
+        "mean": 0.8352941176470589,
+        "std": 0.10120382667108971
+      },
+      "f1": {
+        "mean": 0.8299284753773918,
+        "std": 0.08067722559926534
+      },
+      "roc_auc": {
+        "mean": 0.9271049596309112,
+        "std": 0.05439086235870002
+      },
+      "brier_score": {
+        "mean": 0.1252171030938352,
+        "std": 0.05667078737522287
+      },
+      "calibration_curve": {
+        "prob_true": [
+          0.1095890410958904,
+          0.375,
+          0.8,
+          0.16666666666666666,
+          0.8961038961038961
+        ],
+        "prob_pred": [
+          0.02075984094308246,
+          0.27410321918117486,
+          0.47797208678081365,
+          0.7358407973555111,
+          0.9687325158139295
+        ]
+      },
+      "oof_brier_score": 0.12545656651508075
+    }
+  },
+  "selected_best_model": "RandomForest",
+  "best_model_cv_metrics": {
+    "accuracy": {
+      "mean": 0.8505882352941176,
+      "std": 0.06095629415680299
+    },
+    "balanced_accuracy": {
+      "mean": 0.8503267973856209,
+      "std": 0.0622255175707812
+    },
+    "sensitivity": {
+      "mean": 0.8653594771241829,
+      "std": 0.04386395224983662
+    },
+    "specificity": {
+      "mean": 0.8352941176470589,
+      "std": 0.11406305546861949
+    },
+    "f1": {
+      "mean": 0.8574416433239962,
+      "std": 0.05403632962978711
+    },
+    "roc_auc": {
+      "mean": 0.948558246828143,
+      "std": 0.0355148105814286
+    },
+    "brier_score": {
+      "mean": 0.10838338347940302,
+      "std": 0.02070206478324887
+    },
+    "calibration_curve": {
+      "prob_true": [
+        0.0,
+        0.28,
+        0.48484848484848486,
+        0.8571428571428571,
+        1.0
+      ],
+      "prob_pred": [
+        0.09597327077156703,
+        0.2985661440297702,
+        0.5165725788174654,
+        0.7126941717508619,
+        0.9133606412167169
+      ]
+    },
+    "oof_brier_score": 0.10843259072049492
+  },
+  "shap_explanations": {
+    "top_features": [
+      {
+        "feature": "total_time15",
+        "importance": 0.02844
+      },
+      {
+        "feature": "paper_time23",
+        "importance": 0.02362
+      },
+      {
+        "feature": "air_time15",
+        "importance": 0.02229
+      },
+      {
+        "feature": "air_time16",
+        "importance": 0.019
+      },
+      {
+        "feature": "total_time6",
+        "importance": 0.01811
+      },
+      {
+        "feature": "total_time9",
+        "importance": 0.01675
+      },
+      {
+        "feature": "paper_time17",
+        "importance": 0.01557
+      },
+      {
+        "feature": "air_time6",
+        "importance": 0.01475
+      },
+      {
+        "feature": "air_time5",
+        "importance": 0.01383
+      },
+      {
+        "feature": "total_time8",
+        "importance": 0.01375
+      },
+      {
+        "feature": "mean_speed_in_air17",
+        "importance": 0.011
+      },
+      {
+        "feature": "paper_time9",
+        "importance": 0.01091
+      },
+      {
+        "feature": "pressure_mean4",
+        "importance": 0.01019
+      },
+      {
+        "feature": "disp_index23",
+        "importance": 0.01012
+      },
+      {
+        "feature": "total_time13",
+        "importance": 0.01011
+      },
+      {
+        "feature": "total_time3",
+        "importance": 0.00985
+      },
+      {
+        "feature": "gmrt_in_air17",
+        "importance": 0.00921
+      },
+      {
+        "feature": "air_time2",
+        "importance": 0.00893
+      },
+      {
+        "feature": "paper_time8",
+        "importance": 0.00864
+      },
+      {
+        "feature": "total_time16",
+        "importance": 0.00843
+      }
+    ],
+    "top_tasks": [
+      {
+        "task": 17,
+        "importance": 0.06636
+      },
+      {
+        "task": 15,
+        "importance": 0.05978
+      },
+      {
+        "task": 6,
+        "importance": 0.0438
+      },
+      {
+        "task": 23,
+        "importance": 0.04313
+      },
+      {
+        "task": 9,
+        "importance": 0.03984
+      },
+      {
+        "task": 7,
+        "importance": 0.03616
+      },
+      {
+        "task": 8,
+        "importance": 0.03102
+      },
+      {
+        "task": 16,
+        "importance": 0.0288
+      },
+      {
+        "task": 3,
+        "importance": 0.02554
+      },
+      {
+        "task": 2,
+        "importance": 0.02427
+      },
+      {
+        "task": 13,
+        "importance": 0.0194
+      },
+      {
+        "task": 5,
+        "importance": 0.01743
+      },
+      {
+        "task": 25,
+        "importance": 0.01691
+      },
+      {
+        "task": 22,
+        "importance": 0.01388
+      },
+      {
+        "task": 11,
+        "importance": 0.01257
+      },
+      {
+        "task": 10,
+        "importance": 0.01073
+      },
+      {
+        "task": 21,
+        "importance": 0.01072
+      },
+      {
+        "task": 24,
+        "importance": 0.01047
+      },
+      {
+        "task": 4,
+        "importance": 0.01019
+      },
+      {
+        "task": 20,
+        "importance": 0.00766
+      },
+      {
+        "task": 14,
+        "importance": 0.00573
+      },
+      {
+        "task": 12,
+        "importance": 0.0051
+      },
+      {
+        "task": 18,
+        "importance": 0.00086
+      },
+      {
+        "task": 1,
+        "importance": 0.0
+      },
+      {
+        "task": 19,
+        "importance": 0.0
+      }
+    ],
+    "task_importance_summary": {
+      "task_17": 0.06636,
+      "task_15": 0.05978,
+      "task_6": 0.0438,
+      "task_23": 0.04313,
+      "task_9": 0.03984,
+      "task_7": 0.03616,
+      "task_8": 0.03102,
+      "task_16": 0.0288,
+      "task_3": 0.02554,
+      "task_2": 0.02427,
+      "task_13": 0.0194,
+      "task_5": 0.01743,
+      "task_25": 0.01691,
+      "task_22": 0.01388,
+      "task_11": 0.01257,
+      "task_10": 0.01073,
+      "task_21": 0.01072,
+      "task_24": 0.01047,
+      "task_4": 0.01019,
+      "task_20": 0.00766,
+      "task_14": 0.00573,
+      "task_12": 0.0051,
+      "task_18": 0.00086,
+      "task_1": 0.0,
+      "task_19": 0.0
+    }
+  },
+  "disclaimer": "Research and educational prototype only. Not a medical device. Not clinically validated for diagnostic, prognostic, or screening purposes."
+}

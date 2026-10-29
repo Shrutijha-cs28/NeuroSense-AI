@@ -1,0 +1,102 @@
+{
+  "task": "Parkinson cohort vs control from acoustic voice features",
+  "source": "UCI dataset 489, DOI 10.24432/C5701F, CC BY 4.0; attribution in data/external/README.md",
+  "recordings": 240,
+  "participants": 80,
+  "class_counts": {
+    "control": 40,
+    "Parkinson's cohort": 40
+  },
+  "features": 44,
+  "evaluation": "10 repeats of stratified 5-fold CV after aggregation to one row per participant",
+  "cross_validation": {
+    "accuracy": {
+      "mean": 0.85375,
+      "std": 0.07665874053230981
+    },
+    "balanced_accuracy": {
+      "mean": 0.85375,
+      "std": 0.07665874053230981
+    },
+    "f1_macro": {
+      "mean": 0.8524176636916576,
+      "std": 0.07772730379515484
+    },
+    "roc_auc": {
+      "mean": 0.906875,
+      "std": 0.07001394950293834
+    },
+    "recall": {
+      "mean": 0.8525,
+      "std": 0.11643131022195019
+    },
+    "precision": {
+      "mean": 0.8639184704184706,
+      "std": 0.09591760619626633
+    }
+  },
+  "majority_class_baseline": {
+    "accuracy": {
+      "mean": 0.5,
+      "std": 0.0
+    },
+    "balanced_accuracy": {
+      "mean": 0.5,
+      "std": 0.0
+    },
+    "f1_macro": {
+      "mean": 0.33333333333333326,
+      "std": 5.551115123125783e-17
+    },
+    "roc_auc": {
+      "mean": 0.5,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "precision": {
+      "mean": 0.0,
+      "std": 0.0
+    }
+  },
+  "single_5fold_oof_classification_report": {
+    "control": {
+      "precision": 0.8648648648648649,
+      "recall": 0.8,
+      "f1-score": 0.8311688311688312,
+      "support": 40.0
+    },
+    "Parkinson's cohort": {
+      "precision": 0.813953488372093,
+      "recall": 0.875,
+      "f1-score": 0.8433734939759037,
+      "support": 40.0
+    },
+    "accuracy": 0.8375,
+    "macro avg": {
+      "precision": 0.839409176618479,
+      "recall": 0.8375,
+      "f1-score": 0.8372711625723674,
+      "support": 80.0
+    },
+    "weighted avg": {
+      "precision": 0.839409176618479,
+      "recall": 0.8375,
+      "f1-score": 0.8372711625723674,
+      "support": 80.0
+    }
+  },
+  "single_5fold_oof_confusion_matrix": [
+    [
+      32,
+      8
+    ],
+    [
+      5,
+      35
+    ]
+  ],
+  "warning": "Small benchmark cohort; repeated internal CV is not independent external clinical validation. Research/education only, not for diagnosis or screening."
+}
