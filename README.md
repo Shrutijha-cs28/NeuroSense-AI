@@ -30,6 +30,22 @@
 
 ---
 
+## 🛠️ Technology Stack
+
+| Layer | Technologies & Libraries | Role in NeuroSenseAI |
+|---|---|---|
+| **Language & Runtime** | `Python 3.11 / 3.13` | Core programming environment |
+| **Machine Learning** | `scikit-learn` (`>=1.4`) | Preprocessing pipelines, Nested Cross-Validation, `StratifiedGroupKFold`, `GroupKFold`, Logistic Regression, Random Forest, SVM, Gradient Boosting, Probability Calibration |
+| **Data Manipulation** | `pandas`, `NumPy`, `SciPy` | Tabular feature matrix processing, group aggregations, statistical summaries, missingness handling |
+| **Explainable AI (XAI)** | `SHAP` (`shap`) | Global and local model interpretability (`TreeExplainer`, `LinearExplainer`), task-level importance aggregation |
+| **Interactive Dashboard** | `Streamlit` (`>=1.30`) | Multi-page research dashboard (`app.py`), real-time sample inference, interactive charts, and persistent clinical disclaimers |
+| **Model Persistence** | `Joblib` | Versioned model artifact serialization with pipeline steps, feature names, and CV metrics |
+| **Testing & Verification** | `pytest` | Automated test suite (15 tests) enforcing schema compliance, zero-leakage assertions, and model smoke tests |
+| **Automation & Tooling** | `PowerShell` (`run.ps1`), `Make` (`Makefile`) | One-click automation for setup, training, testing, and deployment |
+| **Version Control** | `Git`, `GitHub` | Source code versioning, branch management, and open-source documentation |
+
+---
+
 ## 📊 Modality Registry & Project Status
 
 | Area | Modality | Dataset & Provenance | Model & Validation Protocol | Status |
